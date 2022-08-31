@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerClass : MonoBehaviour
 {
+    protected float xOuTOfBound;
+    protected float yOutOfBound;
     protected float speed = 5;
-    [SerializeField] protected float speedcap = 10;
+    protected float speedcap = 10;
     private Rigidbody2D pRigidbody;
     private float xMovement;
     private float yMovement;
@@ -32,10 +34,10 @@ public class PlayerClass : MonoBehaviour
 
     void SpeedCap()
     {
-        xMovementCap = Mathf.Min(Mathf.Abs(pRigidbody.velocity.x), speedcap) * Mathf.Sign(pRigidbody.velocity.x);
-        yMovementCap = Mathf.Min(Mathf.Abs(pRigidbody.velocity.y), speedcap) * Mathf.Sign(pRigidbody.velocity.y);
+        xMovementCap = Mathf.Clamp(pRigidbody.velocity.x, -speedcap, speedcap);
+        yMovementCap = Mathf.Clamp(pRigidbody.velocity.y, -speedcap, speedcap);    
 
         pRigidbody.velocity = new Vector3(xMovementCap, yMovementCap);
-        Debug.Log(pRigidbody.velocity);
+        //Check velocity if needed Debug.Log(pRigidbody.velocity);
     }
 }

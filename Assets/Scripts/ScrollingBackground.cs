@@ -13,7 +13,6 @@ public class ScrollingBackground : MonoBehaviour
         startPos = transform.position;
         size = GetComponent<BoxCollider>();
         endPos = size.size.x * 11;
-        Debug.Log(endPos);
     }
 
     // Update is called once per frame

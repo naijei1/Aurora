@@ -6,6 +6,6 @@ public class Tier1Ship : PlayerClass
 {
     public Tier1Ship()
     {
-        speed = 5;
+        speed = 20;
     }
 }
